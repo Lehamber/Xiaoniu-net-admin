@@ -1,0 +1,127 @@
+@import 'reset.css';
+.user-list .modal-dialog,
+.shop-list .modal-dialog {
+    min-width: 800px;
+}
+
+.user-list .modal-body,
+.shop-list .modal-body {
+    margin: 0 auto;
+    padding: 60px 0;
+    width: 100%;
+    min-width: 800px;
+}
+
+.user-list form,
+.shop-list form {
+    width: 420px;
+    margin: 0 auto;
+}
+
+.form-group input:focus {
+    box-shadow: none;
+}
+
+.user-list form>div[class='form-group']>p {
+    display: none;
+}
+
+.user-list form>div {
+    position: relative;
+}
+
+.user-list form>div[class='form-group']>p {
+    width: 250px;
+    height: 40px;
+    text-align: left;
+    position: absolute;
+    right: -260px;
+    top: 20px;
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: red;
+    /* display: table; */
+    display: none;
+}
+
+.user-list form>div[class='form-group']>p>span {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+
+/* 安全系数 */
+
+.user-list .safe-window {
+    display: flex;
+    /* background-color: lightblue; */
+    margin-bottom: 10px;
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.user-list .safe-window P {
+    font-size: 15px;
+}
+
+.user-list .safe-window span {
+    font-size: 12px;
+}
+
+.user-list .safe-window .a_pw {
+    display: flex;
+}
+
+.user-list .safe-window .a_pw .safe_line {
+    width: 30px;
+    height: 5px;
+    border-radius: 5px;
+    margin-left: 15px;
+    margin-top: 7px;
+    margin-right: 10px;
+    background-color: transparent;
+}
+
+.modal .form-group>label {
+    color: #1e7ace;
+}
+
+
+/* 修改分类modal*/
+
+.class-list .modal .form-group {
+    position: relative;
+}
+
+.class-list .modal .form-group>p {
+    position: absolute;
+    bottom: -24px;
+    left: 4px;
+    color: red;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    display: none;
+}
+
+.shop-list .update-modal .form-group {
+    position: relative;
+}
+
+.shop-list .update-modal .form-group p {
+    position: absolute;
+    top: 22px;
+    right: -180px;
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ff0000;
+    width: 170px;
+    height: 40px;
+    /* background-color: #1e7ace; */
+    display: table;
+    /* display: none; */
+}
+
+.shop-list .update-modal .form-group span {
+    display: table-cell;
+    vertical-align: middle;
+}

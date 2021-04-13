@@ -1,0 +1,363 @@
+@import 'reset.css';
+.wrap {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    height: 58px;
+    background-color: #45b035;
+    /* 下面这个绿太亮了 */
+    /* background-color: #39bf3e; */
+    display: flex;
+}
+
+.header .h-left {
+    height: 100%;
+    width: 240px;
+    min-width: 240px;
+    display: flex;
+    align-items: center;
+}
+
+.header .h-left .logo {
+    margin-left: 16px;
+}
+
+.header .h-left img {
+    width: 87px;
+    height: 31px;
+}
+
+.header .h-left .h-name {
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    color: #ffffff;
+    margin-left: 20px;
+}
+
+.header .h-right {
+    width: 100%;
+    border-left: 20px solid #3da32d;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+.header .h-r-left {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
+
+.header .h-r-left .home {
+    font-size: 25px;
+    margin-left: 20px;
+    color: #ffffffcc;
+}
+
+.header .h-r-left .line {
+    margin: 0 9px;
+    color: #c0c4cc;
+    font-weight: 700;
+}
+
+.header .h-r-left .word1 {
+    color: #ffffffcc;
+}
+
+.header .h-r-left .word2 {
+    font-weight: 700;
+}
+
+.header .h-l-right {
+    display: flex;
+    align-items: center;
+    margin-right: 33px;
+}
+
+.header .h-l-right .admin-name {
+    font-size: 14px;
+    margin-right: 25px;
+}
+
+.header .h-l-right .head-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    border-color: hsla(0, 0%, 100%, .2);
+    border: 2px solid #ffffff55;
+    /* border: 2px solid transparent; */
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header .h-l-right .head-pic>i {
+    font-size: 24px;
+    color: hsla(0, 0%, 100%, .8);
+    font-weight: 400;
+}
+
+
+/* mid部分 */
+
+.mid {
+    flex: 1;
+    display: flex;
+    /* background-color: #eeeeee; */
+}
+
+.mid .left-slide {
+    min-width: 240px;
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 673.2px;
+    max-height: 1000px;
+    /* min-height: 100%; */
+    border-right: 1px solid #e6e6e6;
+    box-shadow: 2px 2px 4px #dfdfdf;
+    background-color: #fff;
+}
+
+
+/* 左边导航栏部分 */
+
+
+/* .mid .left-slide>ul>li .click-div:hover .arrowhead {
+    font-size: 40px;
+    transform: rotate(180deg);
+    transition: transform 0.3s;
+} */
+
+.mid .left-slide>ul>li .click-div {
+    width: 100%;
+    padding: 0 20px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.mid .left-slide>ul>li .click-div:hover {
+    background-color: #ecf5ff;
+}
+
+.mid .left-slide .click-div .menu {
+    color: #909399;
+    margin-left: 5px;
+    margin-right: 4px;
+    font-size: 18px;
+}
+
+.mid .left-slide .click-div span {
+    color: #303133;
+    font-size: 14px;
+    margin-left: 16px;
+}
+
+.mid .left-slide .click-div .arrow {
+    color: #909399;
+    font-size: 18px;
+    position: absolute;
+    right: 20px;
+    /* top: 50%; */
+    /* transform: translate(0, -50%); */
+}
+
+.mid .left-slide .slide-list .c-list {
+    width: 100%;
+    padding: 0 40px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+}
+
+.mid .left-slide .slide-list .c-list:hover {
+    background-color: #ecf5ff;
+    /* color: #3da32d; */
+    color: #39bf3e;
+}
+
+.mid .left-slide .click-div,
+.mid .left-slide .slide-list .c-list {
+    cursor: pointer;
+}
+
+
+/* 右边的表格内容 */
+
+.mid .right-con {
+    margin-top: 10px;
+    flex: 1;
+    min-height: 252px;
+    max-height: 663.2px;
+    max-width: 1360px;
+    min-width: 1100px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.mid .right-con .r-wrap {
+    max-width: 1360px;
+    min-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    padding: 10px;
+    /* background-color: #39bf3e; */
+}
+
+.mid .right-con .r-wrap .r-w-body {
+    margin-top: 5px;
+    border: 1px solid #d9d9d9;
+    background-color: #fff;
+    /* height: 500px; */
+    padding: 15px 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.mid .right-con .r-wrap .r-w-name {
+    position: absolute;
+    top: 4px;
+    left: 24px;
+    padding: 0 15px;
+    color: #1e7ace;
+    font-weight: 700;
+    padding: 0px 18px;
+    background-color: #fff;
+    font-size: 16px;
+}
+
+
+/* table里面的布局 */
+
+.mid .right-con .r-table {
+    min-height: 252px;
+    max-height: 530px;
+    overflow: scroll;
+    flex: 1;
+    position: relative;
+}
+
+.mid .right-con .r-control {
+    margin: 10px 20px 20px;
+}
+
+.mid .right-con .real-table {
+    max-width: 1224px;
+    position: relative;
+}
+
+.mid .right-con .real-table .static-th {
+    position: absolute;
+    top: 0;
+}
+
+.mid .right-con .r-table .ta-th {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+/* 左边内容的控制部分，检索部分.r-control */
+
+.right-con .r-control {
+    display: flex;
+    justify-content: space-between;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.right-con .r-control>div:first-child .add {
+    margin-right: 30px;
+}
+
+.right-con .r-control>div {
+    display: flex;
+    height: 34px;
+}
+
+.right-con .r-control .sear-sele {
+    /* margin-left: 200px; */
+    border: 1px solid #d9d9d9;
+    color: #303133;
+}
+
+.right-con .r-control .sear-sele>option {
+    height: 30px;
+    border: 1px solid #d9d9d9;
+    border-top: none;
+    color: #303133;
+}
+
+.right-con .r-control .sear-sele option:hover {
+    color: #909399;
+}
+
+.right-con .r-control .sear-sele:focus {
+    outline: none;
+}
+
+.right-con .r-control .sear-box {
+    border: 1px solid #d9d9d9;
+    padding: 0 5px;
+    color: #303133;
+    font-size: 14px;
+}
+
+.right-con .r-control .sear-box:focus {
+    outline: none;
+    border: 2px solid #3da32d;
+    border-right: none;
+}
+
+.right-con .r-control .sear-btn {
+    border: none;
+    background-color: #3da32d;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 0 10px;
+    border-radius: 0 4px 4px 0;
+    margin-right: 30px;
+}
+
+.right-con .r-control .sear-btn:focus {
+    outline: none;
+}
+
+.right-con .real-table .control button {
+    margin: 2px 0px;
+}
+
+.right-con .r-table .modal-title {
+    color: #1e7ace;
+}
+
+
+/* 补充 */
+
+
+/* 产品图片 */
+
+.right-con .r-table .pro-img {
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+    position: relative;
+}
+
+.right-con .r-table .pro-img img {
+    min-width: 100%;
+    max-height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" href="favicon.ico">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+    <!-- 引入css文件 -->
+    <link href="css/index.css" rel="stylesheet">
+    <link href="css/c-modal.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="header standardWidth">
+            <div class="h-left">
+                <div class="logo">
+                    <img src="./images/logo1.png" alt="logo">
+                </div>
+                <div class="h-name">后台管理</div>
+            </div>
+            <div class="h-right">
+                <div class="h-r-left">
+                    <i class="iconfont home">&#xe65c;</i>
+                    <i class="line">/</i>
+                    <span class="word1">订单管理</span>
+                    <i class="line">/</i>
+                    <span class="word2">订单列表</span>
+                </div>
+                <div class="h-l-right">
+                    <div class="admin-name">简小橘</div>
+                    <div class="head-pic">
+                        <i class="iconfont">&#xe677;</i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mid standardWidth">
+            <div class="left-slide">
+                <ul class="list-unstyled">
+                    <li>
+                        <div class="click-div">
+                            <i class="iconfont menu">&#xe60a;</i>
+                            <span class="sign">首页</span>
+                            <!-- <i class="iconfont arrow">&#xe638;</i> -->
+                            <!-- <i class="iconfont arrow">&#xe640;</i> -->
+                        </div>
+                    </li>
+                    <li>
+                        <div class="click-div click-arrow" data-target="#order" aria-expanded="false" data-toggle="collapse">
+                            <i class="iconfont menu">&#xe60a;</i>
+                            <span class="sign">订单管理</span>
+                            <i class="iconfont arrow">&#xe638;</i>
+                            <!-- <i class="iconfont arrow">&#xe640;</i> -->
+                        </div>
+                        <ul id="order" class="slide-list collapse list-unstyled">
+                            <li class="c-list">订单列表</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <div class="click-div" data-target="#supply" aria-expanded="false" data-toggle="collapse">
+                            <i class="iconfont menu">&#xe60a;</i>
+                            <span class="sign">供应管理</span>
+                            <i class="iconfont arrow">&#xe638;</i>
+                            <!-- <i class="iconfont arrow">&#xe640;</i> -->
+                        </div>
+                        <ul id="supply" class="slide-list collapse list-unstyled ">
+                            <li class="c-list">分类列表</li>
+                            <li class="c-list">产品列表</li>
+                            <!-- <li class="c-list">分支界面</li> -->
+                        </ul>
+                    </li>
+                    <li>
+                        <div class="click-div" data-target="#user" aria-expanded="false" data-toggle="collapse">
+                            <i class="iconfont menu">&#xe60a;</i>
+                            <span class="sign">用户管理</span>
+                            <i class="iconfont arrow">&#xe638;</i>
+                            <!-- <i class="iconfont arrow">&#xe640;</i> -->
+                        </div>
+                        <ul id="user" class="slide-list collapse list-unstyled">
+                            <li class="c-list">用户列表</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <div class="click-div" data-target="#store" aria-expanded="false" data-toggle="collapse">
+                            <i class="iconfont menu">&#xe60a;</i>
+                            <span class="sign">店铺管理</span>
+                            <i class="iconfont arrow">&#xe638;</i>
+                            <!-- <i class="iconfont arrow">&#xe640;</i> -->
+                        </div>
+                        <ul id="store" class="slide-list collapse list-unstyled">
+                            <li class="c-list">店铺列表</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <div class="click-div setting">
+                            <i class="iconfont menu">&#xe654;</i>
+                            <span class="sign">设置</span>
+                            <!-- <i class="iconfont arrow">&#xe638;</i> -->
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="right-con">
+                <div class="r-wrap home">
+                    <div class="r-w-body">
+                    </div>
+                    <div class="r-w-name ">首页</div>
+                </div>
+                <div class="r-wrap order-list">
+                    <div class="r-w-body">
+                        <div class="r-control">
+                            <div>
+                                <!-- <input class="add btn btn-success" type="button" value="增加分类" class="btn btn-success"> -->
+                                <input class="show-all btn btn-success" type="button" value="查看全部" class="btn btn-success">
+                            </div>
+                            <div>
+                                <select class="sear-sele">
+                                    <option value="订单编号">按编号查</option>
+                                    <option value="订单生成时间">按生成时间查</option>
+                                    <option value="产品编号">按产品编号查</option>
+                                    <option value="订单状态">按订单状态查</option>
+                                    <option value="收货地址">按收货地址查</option>
+                                    <option value="收货人电话">按收获人电话查</option>
+                                    <option value="收货人姓名">按收获人姓名查</option>
+                                </select>
+                                <input class="sear-box" type="text">
+                                <input type="button" class="sear-btn" value="查找">
+                            </div>
+                        </div>
+                        <div class="r-table">
+                            <table class="real-table table table-striped table-bordered table-hover table-condensed">
+                                <tr class="success">
+                                    <th>订单编号</th>
+                                    <th>产品数量</th>
+                                    <th>产品单价</th>
+                                    <th>订单总金额</th>
+                                    <th>订单生成时间</th>
+                                    <th>产品编号</th>
+                                    <th>订单状态</th>
+                                    <th>收货地址</th>
+                                    <th>收货人电话</th>
+                                    <th>收货人姓名</th>
+                                    <th>操作</th>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>1200</td>
+                                    <td>99.0</td>
+                                    <td>20000.0</td>
+                                    <td>2020-12-32-12:31:02</td>
+                                    <td>5</td>
+                                    <td>待付款</td>
+                                    <td>甘肃省庆阳市宁县瓦斜</td>
+                                    <td>1836741298</td>
+                                    <td>张derder</td>
+                                    <td class="control">
+                                        <button type="button" class="del btn btn-danger btn-xs" data-toggle="modal">
+                                            <span class="glyphicon glyphicon-remove"></span> 删除
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>撒旦法5</td>
+                                    <td>水果撒旦法</td>
+                                    <td>5阿萨德</td>
+                                    <td>第三方水果</td>
+                                    <td>5爱的色放</td>
+                                    <td>水果阿斯蒂芬</td>
+                                    <td>5撒旦法</td>
+                                    <td>水撒旦法果</td>
+                                    <td>5撒旦法</td>
+                                    <td>水萨达果</td>
+                                    <td class="control">
+                                        <!-- <button type="button" class="update btn btn-info btn-xs  " data-toggle="modal">
+                                            <span class="glyphicon glyphicon-edit"></span> 编辑
+                                        </button>
+                                        <button type="button" class="btn btn-warning btn-xs del" data-toggle="modal">
+                                            <span class="glyphicon glyphicon-info-sign"></span> 详情
+                                        </button> -->
+                                        <button type="button" class="del btn btn-danger btn-xs" data-toggle="modal">
+                                            <span class="glyphicon glyphicon-remove"></span> 删除
+                                        </button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="r-w-name ">分类管理</div>
+                </div>
+                <div class="r-wrap class-list">
+                    <div class="r-w-body">
+                        <div class="r-control">
+                            <div>
+                                <input class="add btn btn-success" type="button" value="添加分类">
+                                <input class="show-all btn btn-success" type="button" value="查看全部">
+                            </div>
+                            <div>
+                                <select class="sear-sele">
+                                    <option value="分类编号">按编号查</option>
+                                    <option value="分类名称">按分类名查</option>
+                                </select>
+                                <input class="sear-box" type="text">
+                                <input type="button" class="sear-btn" value="查找">
+                            </div>
+                        </div>
+                        <div class="r-table">
+                            <table class="real-table table table-striped table-bordered table-hover table-condensed">
+                                <tr class="success">
+                                    <th>分类编号</th>
+                                    <th>分类名称</th>
+                                    <th>操作</th>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>水果</td>
+                                    <td class="control">
+                                        <button type="button" class="update btn btn-info btn-xs  " data-toggle="modal">
+                                            <span class="glyphicon glyphicon-edit"></span> 编辑
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>蔬菜</td>
+                                    <td class="control">
+                                        <button type="button" class="update btn btn-info btn-xs  " data-toggle="modal">
+                                            <span class="glyphicon glyphicon-edit"></span> 编辑
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>禽畜肉蛋</td>
+                                    <td class="control">
+                                        <button type="button" class="update btn btn-info btn-xs  " data-toggle="modal">
+                                            <span class="glyphicon glyphicon-edit"></span> 编辑
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>粮油米面</td>
+                                    <td class="control">
+                                        <button type="button" class="update btn btn-info btn-xs  " data-toggle="modal">
+                                            <span class="glyphicon glyphicon-edit"></span> 编辑
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>农副加工</td>
+                                    <td class="control">
+                                        <button type="button" class="update btn btn-info btn-xs  " data-toggle="modal">
+                                            <span class="glyphicon glyphicon-edit"></span> 编辑
+                                        </button>
+                                    </td>
+                                </tr>
+                            </table>
+                            <div class="add-modal modal fade">
+                                <!-- 窗口声明 -->
+                                <div class="modal-dialog">
+                                    <!-- 内容声明 -->
+                                    <div class="modal-content">
+                                        <!-- 头部 -->
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">
+                                                <span>×</span>
+                                            </button>
+                                            <h4 class="modal-title">添加分类</h4>
+                                        </div>
+                                        <!-- 主体 -->
+                                        <div class="modal-body">
+                                            <form onsubmit="return false">
+                                                <div class="form-group">
+                                                    <label for="add-categoryName" class="sr-only">分类名</label>
+                                                    <input type="text" id="add-categoryName" class="form-control" placeholder="请输入分类名">
+                                                    <p class="format">类型名必须是1-8个纯汉字</p>
+                                                    <p class="err">此类型名已被使用</p>
+                                                    <p class="isEmpty">请输入类型名</p>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <!-- 注脚 -->
+                                        <div class="modal-footer">
+                                            <button type="button" class="makesure btn btn-success"> 确认 </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="update-modal modal fade">
+                                <!-- 窗口声明 -->
+                                <div class="modal-dialog">
+                                    <!-- 内容声明 -->
+                                    <div class="modal-content">
+                                        <!-- 头部 -->
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">
+                                                <span>×</span>
+                                            </button>
+                                            <h4 class="modal-title">修改分类信息</h4>
+                                        </div>
+                                        <!-- 主体 -->
+                                        <div class="modal-body">
+                                            <form onsubmit="return false">
+                                                <div class="form-group">
+                                                    <label for="up-categoryName" class="sr-only">分类名称</label>
+                                                    <input type="text" id="up-categoryName" class="form-control" placeholder="请输入分类名">
+                                                    <p class="format">类型名必须是1-8个纯汉字</p>
+                                                    <p class="err">此类型名已被使用</p>
+                                                    <p class="isEmpty">请输入类型名</p>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <!-- 注脚 -->
+                                        <div class="modal-footer">
+                                            <button type="button" class="makesure btn btn-success"> 确认 </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="r-w-name ">分类管理</div>
+                </div>
+                <div class="r-wrap pro-list">
+                    <div class="r-w-body">
+                        <div class="r-control">
+                            <div>
+                                <input class="show-all btn btn-success" type="button" value="查看全部">
+                            </div>
+                            <div>
+                                <select class="sear-sele">
+                                    <option value="产品编号">按产品编号查</option>
+                                    <option value="产品名称">按产品名称查</option>
+                                    <option value="标题">按标题查</option>
+                                    <option value="更新日期">按更新日期查</option>
+                                    <option value="上架日期">按上架日期查</option>
+                                    <option value="分类名">按分类名查</option>
+                                    <option value="规格">按规格查</option>
+                                    <option value="店主编号">按店主编号查</option>
+                                    <option value="店主联系电话">按店主联系电话查</option>
+                                </select>
+                                <input class="sear-box" type="text">
+                                <input type="button" class="sear-btn" value="查找">
+                            </div>
+                        </div>
+                        <div class="r-table">
+                            <table class="real-table table table-striped table-bordered table-hover table-condensed">
+                                <tr class="success">
+                                    <th>产品编号</th>
+                                    <th>产品名称</th>
+                                    <th>产品图片</th>
+                                    <th>标题</th>
+                                    <th>单价</th>
+                                    <th>库存</th>
+                                    <th>更新日期</th>
+                                    <th>上架日期</th>
+                                    <th>分类名</th>
+                                    <th>规格</th>
+                                    <th>店主编号</th>
+                                    <th>店主联系电话</th>
+                                    <th>操作</th>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>红薯</td>
+                                    <td>糖化大果烟薯25蜜薯红薯糖份高</td>
+                                    <td>
+                                        <div class="pro-img">
+                                            <img src="./images/defaultHeadPic.png">
+                                        </div>
+                                    </td>
+                                    <td>2.0000</td>
+                                    <td>889</td>
+                                    <td>2019-01-01 00:00:00.000</td>
+                                    <td>2018-02-12 00:00:00.000</td>
+                                    <td>1</td>
+                                    <td>斤</td>
+                                    <td>123</td>
+                                    <td>123.jpg</td>
+                                    <td class="control">
+                                        <!-- <button type="button" class="update btn btn-info btn-xs  " data-toggle="modal">
+                                            <span class="glyphicon glyphicon-edit"></span> 编辑
+                                        </button> -->
+                                        <button type="button" class="detail btn btn-warning btn-xs" data-toggle="modal">
+                                            <span class="glyphicon glyphicon-magnet"></span> 详情
+                                        </button>
+                                        <button type="button" class="btn btn-danger btn-xs del" data-toggle="modal">
+                                            <span class="glyphicon glyphicon-remove"></span> 删除
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>红薯</td>
+                                    <td>糖化大果烟薯25蜜薯红薯糖份高</td>
+                                    <td>/images/123.jpg</td>
+                                    <td>2.0000</td>
+                                    <td>889</td>
+                                    <td>2019-01-01 00:00:00.000</td>
+                                    <td>2018-02-12 00:00:00.000</td>
+                                    <td>1</td>
+                                    <td>斤</td>
+                                    <td>123</td>
+                                    <td>123.jpg</td>
+                                    <td class="control">
+                                        <!-- <button type="button" class="update btn btn-info btn-xs  " data-toggle="modal">
+                                            <span class="glyphicon glyphicon-edit"></span> 编辑
+                                        </button> -->
+                                        <button type="button" class="detail btn btn-warning btn-xs" data-toggle="modal">
+                                            <span class="glyphicon glyphicon-magnet"></span> 详情
+                                        </button>
+                                        <button type="button" class="btn btn-danger btn-xs del" data-toggle="modal">
+                                            <span class="glyphicon glyphicon-remove"></span> 删除
+                                        </button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="r-w-name ">分类管理</div>
+                </div>
+                <div class="r-wrap user-list">
+                    <div class="r-w-body">
+                        <div class="r-control">
+                            <div>
+                                <input class="add btn btn-success" type="button" value="添加用户">
+                                <input class="show-all btn btn-success" type="button" value="查看全部">
+                            </div>
+                            <div>
+                                <select class="sear-sele">
+                                    <option value="用户编号">按编号查</option>
+                                    <option value="用户名">按用户名查</option>
+                                    <option value="用户邮箱">按用户邮箱查</option>
+                                    <option value="联系电话">按联系电话查</option>
+                                </select>
+                                <input class="sear-box" type="text">
+                                <input type="button" class="sear-btn" value="查找">
+                            </div>
+                        </div>
+                        <div class="r-table">
+                            <table class="real-table table table-striped table-bordered table-hover table-condensed">
+                                <tr class="success">
+                                    <th>用户编号</th>
+                                    <th>用户名</th>
+                                    <th>用户邮箱</th>
+                                    <th>联系电话</th>
+                                    <th>密码</th>
+                                    <th>操作</th>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>水暗示法果</td>
+                                    <td>5213</td>
+                                    <td>水大方果</td>
+                                    <td>水暗示法果</td>
+                                    <td class="control">
+                                        <button type="button" class="update btn btn-info btn-xs  " data-toggle="modal">
+                                            <span class="glyphicon glyphicon-edit"></span> 编辑
+                                        </button>
+                                        <button type="button" class="del btn btn-danger btn-xs" data-toggle="modal">
+                                            <span class="glyphicon glyphicon-remove"></span> 删除
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>水123暗示法果</td>
+                                    <td>5211233</td>
+                                    <td>水123大方果</td>
+                                    <td>水123暗示法果</td>
+                                    <td class="control">
+                                        <button type="button" class="update btn btn-info btn-xs  " data-toggle="modal">
+                                            <span class="glyphicon glyphicon-edit"></span> 编辑
+                                        </button>
+                                        <!-- <button type="button" class="btn btn-warning btn-xs del" data-toggle="modal">
+                                            <span class="glyphicon glyphicon-info-sign"></span> 详情
+                                        </button> -->
+                                        <button type="button" class="del btn btn-danger btn-xs" data-toggle="modal">
+                                            <span class="glyphicon glyphicon-remove"></span> 删除
+                                        </button>
+                                    </td>
+                                </tr>
+                            </table>
+                            <div class="add-modal modal fade">
+                                <!-- 窗口声明 -->
+                                <div class="modal-dialog">
+                                    <!-- 内容声明 -->
+                                    <div class="modal-content">
+                                        <!-- 头部 -->
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">
+                                                <span>×</span>
+                                            </button>
+                                            <h4 class="modal-title">添加用户</h4>
+                                        </div>
+                                        <!-- 主体 -->
+                                        <div class="modal-body">
+                                            <form onsubmit="return false">
+                                                <div class="form-group">
+                                                    <label for="userNamee">用户名</label>
+                                                    <input type="text" id="add-userName" class="user-name form-control" placeholder="用户名">
+                                                    <p class="formatInfo"><span>用户名格式不合法。用户名由2-20个字母、数字、汉字、-和_组成，且必须包含字母或汉字</span></p>
+                                                    <p class="repeatInfo"><span>该用户名已被使用</span></p>
+                                                    <p class="inviteInfo"><span>请输入用户名</span></p>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="emaill">用户邮箱</label>
+                                                    <input type="text" id="add-email" class="user-email form-control" placeholder="邮箱">
+                                                    <p class="formatInfo"><span>邮箱格式不合法</span></p>
+                                                    <p class="repeatInfo"><span>该邮箱已被使用</span></p>
+                                                    <p class="inviteInfo"><span>请输入邮箱地址</span></p>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="userPhonee">联系电话</label>
+                                                    <input type="text" id="add-userPhone" class="user-phone form-control" placeholder="手机号">
+                                                    <p class="formatInfo"><span>手机号格式不合法</span></p>
+                                                    <p class="repeatInfo"><span>该手机号已被使用</span></p>
+                                                    <p class="inviteInfo"><span>请输入邮箱地址</span></p>
+                                                </div>
+                                                <div class="safe-window">
+                                                    <p>安全系数</p>
+                                                    <div class="a_pw">
+                                                        <div class="safe_line"></div>
+                                                        <div class="safe_line"></div>
+                                                        <div class="safe_line"></div>
+                                                        <div class="safe_line"></div>
+                                                        <div class="safe_line"></div>
+                                                        <span style="display: none;">弱</span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="passwordd">密码</label>
+                                                    <input type="password" id="add-passwordd" class="user-pwd form-control" placeholder="密码（6-16个字符组成，区分大小写）">
+                                                    <p class="formatInfo"><span>密码由6-20个字符组成，且不能包含除!@#$%^&*_+-=?之外的其它特殊字符</span></p>
+                                                    <p class="inviteInfo"><span>请输入密码</span></p>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <!-- 注脚 -->
+                                        <div class="modal-footer">
+                                            <button type="button" class="makesure btn btn-success">确认</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="update-modal modal fade">
+                                <!-- 窗口声明 -->
+                                <div class="modal-dialog">
+                                    <!-- 内容声明 -->
+                                    <div class="modal-content">
+                                        <!-- 头部 -->
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">
+                                                <span>×</span>
+                                            </button>
+                                            <h4 class="modal-title">修改用户信息</h4>
+                                        </div>
+                                        <!-- 主体 -->
+                                        <div class="modal-body">
+                                            <form onsubmit="return false">
+                                                <div class="form-group">
+                                                    <label for="userNameee">用户名</label>
+                                                    <input type="text" id="up-userName" class="user-name form-control" placeholder="用户名">
+                                                    <p class="formatInfo"><span>用户名格式不合法。用户名由2-20个字母、数字、汉字、-和_组成，且必须包含字母或汉字</span></p>
+                                                    <p class="repeatInfo"><span>该用户名已被使用</span></p>
+                                                    <p class="inviteInfo"><span>请输入用户名</span></p>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="emailll">用户邮箱</label>
+                                                    <input type="text" id="up-email" class="user-email form-control" placeholder="邮箱">
+                                                    <p class="formatInfo"><span>邮箱格式不合法</span></p>
+                                                    <p class="repeatInfo"><span>该邮箱已被使用</span></p>
+                                                    <p class="inviteInfo"><span>请输入邮箱地址</span></p>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="userPhoneee">联系电话</label>
+                                                    <input type="text" id="up-userPhone" class="user-phone form-control" placeholder="手机号">
+                                                    <p class="formatInfo"><span>手机号格式不合法</span></p>
+                                                    <p class="repeatInfo"><span>该手机号已被使用</span></p>
+                                                    <p class="inviteInfo"><span>请输入邮箱地址</span></p>
+                                                </div>
+                                                <div class="safe-window">
+                                                    <p>安全系数</p>
+                                                    <div class="a_pw">
+                                                        <div class="safe_line"></div>
+                                                        <div class="safe_line"></div>
+                                                        <div class="safe_line"></div>
+                                                        <div class="safe_line"></div>
+                                                        <div class="safe_line"></div>
+                                                        <span style="display: none;">弱</span>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="passworddd">密码</label>
+                                                    <input type="text" id="up-password" class="user-pwd form-control" placeholder="密码（6-16个字符组成，区分大小写）">
+                                                    <p class="formatInfo"><span>密码由6-20个字符组成，且不能包含除!@#$%^&*_+-=?之外的其它特殊字符</span></p>
+                                                    <p class="inviteInfo"><span>请输入密码</span></p>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <!-- 注脚 -->
+                                        <div class="modal-footer">
+                                            <button type="button" class="makesure btn btn-success">保存</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="r-w-name ">分类管理</div>
+                </div>
+                <div class="r-wrap shop-list">
+                    <div class="r-w-body">
+                        <div class="r-control">
+                            <div>
+                                <!-- <input class="add btn btn-success" type="button" value="添加店铺"> -->
+                                <input class="show-all btn btn-success" type="button" value="查看全部">
+                            </div>
+                            <div>
+                                <select class="sear-sele">
+                                    <option value="店铺编号">按店铺编号查</option>
+                                    <option value="店铺类型名">按店铺类型名查</option>
+                                    <option value="店主真实姓名">按店主真实姓名查</option>
+                                    <option value="店铺名">按店铺名查</option>
+                                    <option value="店铺地址">按店铺地址查</option>
+                                    <option value="店铺联系电话">按店铺联系电话查</option>
+                                    <option value="店主联系电话">按店主联系电话查</option>
+                                </select>
+                                <input class="sear-box" type="text">
+                                <input type="button" class="sear-btn" value="查找">
+                            </div>
+                        </div>
+                        <div class="r-table">
+                            <table class="real-table table table-striped table-bordered table-hover table-condensed">
+                                <tr class="success">
+                                    <th>店铺编号</th>
+                                    <th>店铺类型名</th>
+                                    <th>店主真实姓名</th>
+                                    <th>店铺名</th>
+                                    <th>店铺地址</th>
+                                    <th>店铺联系电话</th>
+                                    <th>店主联系电话</th>
+                                    <th>操作</th>
+                                </tr>
+                                <tr>
+                                    <td>请问5</td>
+                                    <td>水第三方果</td>
+                                    <td>5暗示法</td>
+                                    <td>阿斯蒂芬水果</td>
+                                    <td>5撒旦法</td>
+                                    <td>水阿斯蒂芬果</td>
+                                    <td>暗示法5</td>
+                                    <td class="control">
+                                        <button type="button" class="update btn btn-info btn-xs  " data-toggle="modal">
+                                            <span class="glyphicon glyphicon-edit"></span> 编辑
+                                        </button>
+                                        <!-- <button type="button" class="btn btn-warning btn-xs del" data-toggle="modal">
+                                            <span class="glyphicon glyphicon-info-sign"></span> 详情
+                                        </button> -->
+                                        <button type="button" class="btn btn-danger btn-xs del" data-toggle="modal">
+                                            <span class="glyphicon glyphicon-remove"></span> 删除
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>5 第三方</td>
+                                    <td>水打算果</td>
+                                    <td>5而我却</td>
+                                    <td>水风格化果</td>
+                                    <td>5规范化就</td>
+                                    <td>水三个果</td>
+                                    <td>5风格化</td>
+                                    <td class="control">
+                                        <button type="button" class="update btn btn-info btn-xs  " data-toggle="modal">
+                                            <span class="glyphicon glyphicon-edit"></span> 编辑
+                                        </button>
+                                        <!-- <button type="button" class="btn btn-warning btn-xs del" data-toggle="modal">
+                                            <span class="glyphicon glyphicon-info-sign"></span> 详情
+                                        </button> -->
+                                        <button type="button" class="btn btn-danger btn-xs del" data-toggle="modal">
+                                            <span class="glyphicon glyphicon-remove"></span> 删除
+                                        </button>
+                                    </td>
+                                </tr>
+                            </table>
+                            <div class="update-modal modal fade">
+                                <!-- 窗口声明 -->
+                                <div class="modal-dialog">
+                                    <!-- 内容声明 -->
+                                    <div class="modal-content">
+                                        <!-- 头部 -->
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">
+                                                <span>×</span>
+                                            </button>
+                                            <h4 class="modal-title">修改店铺信息</h4>
+                                        </div>
+                                        <!-- 主体 -->
+                                        <div class="modal-body">
+                                            <form onsubmit="return false">
+                                                <div class="form-group">
+                                                    <label for="shop-type-name">店铺类型名</label>
+                                                    <input type="text" id="shop-type-name" class="form-control" placeholder="店铺类型名">
+                                                    <p class="format"><span>店铺类型名必须是1-8个纯汉字</span></p>
+                                                    <p class="isEmpty"><span>请输入店铺类型名</span></p>
+                                                    <p class="type-name"><span>您输入的店铺类型名不存在</span></p>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="owner-name">店主真实姓名</label>
+                                                    <input type="text" id="owner-name" class="form-control" placeholder="店主真实姓名">
+                                                    <p class="format"><span>请输入合法姓名</span></p>
+                                                    <p class="isEmpty"><span>请输入店主真实姓名</span></p>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="shop-name">店铺名</label>
+                                                    <input type="text" id="shop-name" class="form-control" placeholder="店铺名">
+                                                    <p class="format"><span>店铺名必须是2-25个纯汉字</span></p>
+                                                    <p class="err"><span>此店铺名已被使用</span></p>
+                                                    <p class="isEmpty"><span>请输入店铺名</span></p>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="shop-address">店铺地址</label>
+                                                    <input type="text" id="shop-address" class="form-control" placeholder="店铺地址">
+                                                    <p class="format"><span>请输入合法地址</span></p>
+                                                    <p class="isEmpty"><span>请输入店铺地址</span></p>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="shop-phone">店铺联系电话</label>
+                                                    <input type="text" id="shop-phone" class="form-control" placeholder="店铺联系电话">
+                                                    <p class="format"><span>请输入合法号码</span></p>
+                                                    <p class="err"><span>此号码已被使用</span></p>
+                                                    <p class="isEmpty"><span>请输入店铺联系电话</span></p>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="shop-owner-phone">店主联系电话</label>
+                                                    <input type="text" id="shop-owner-phone" class="form-control" placeholder="店铺联系电话">
+                                                    <p class="format"><span>请输入合法号码</span></p>
+                                                    <p class="err"><span>此号码已被使用</span></p>
+                                                    <p class="isEmpty"><span>请输入店主联系电话</span></p>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <!-- 注脚 -->
+                                        <div class="modal-footer">
+                                            <button type="button" class="makesure btn btn-success">保存</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="r-w-name ">分类列表</div>
+                </div>
+                <div class="r-wrap set">
+                    <div class="r-w-body">
+
+                    </div>
+                    <div class="r-w-name ">设置</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 引入自定义模块 -->
+    <script src="./js/module/serverIP.js"></script>
+    <script src="./js/module/sendAjax.js"></script>
+    <script src="./js/module/proCookie.js"></script>
+
+    <!-- 引入js文件 -->
+    <script src="./js/index.js"></script>
+    <script src="./js/c_modal.js"></script>
+    <script src="./js/sear_respon.js"></script>
+    <script src="./js/del_respon.js"></script>
+    <script src="./js/add_respon.js"></script>
+    <script src="./js/update_respon.js"></script>
+</body>
+
+</html>
